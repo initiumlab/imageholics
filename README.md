@@ -1,6 +1,6 @@
 # imageholics
 
-## Install
+## Install & Update
 
 Install the following browser extensions accordingly:
 
@@ -8,4 +8,4 @@ Install the following browser extensions accordingly:
    * Safari: NinjaKit
    * Firefox: GreaseMonkey
 
-Visit [the script]() and accept to install.
+Visit [the script](https://github.com/initiumlab/imageholics/raw/master/Imageholics.user.js) and accept to install.
