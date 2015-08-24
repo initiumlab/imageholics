@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imageholics
 // @namespace    http://initiumlab.com/
-// @version      0.1
+// @version      0.2
 // @description  enter something useful
 // @author       You
 // @match        https://theinitium.com/*
