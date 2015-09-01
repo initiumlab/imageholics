@@ -4,9 +4,9 @@
 
 Install the following browser extensions accordingly:
 
-   * Chrome: TamperMonkey
-   * Safari: NinjaKit
-   * Firefox: GreaseMonkey
+   * Chrome: [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
+   * Safari: [TamperMonkey](https://safari.tampermonkey.net/tampermonkey.safariextz)
+   * Firefox: [GreaseMonkey](https://addons.mozilla.org/zh-tw/firefox/addon/greasemonkey/) 
 
 Visit [the script](https://raw.githubusercontent.com/initiumlab/imageholics/master/Imageholics.user.js) and accept to install.
 
