@@ -9,9 +9,14 @@
 // ==/UserScript==
 
 $(function(){
-    var images = $('figure img')
+    var awesomeBar = $('<div>')
+    var images = $('figure.image')
     images.map(function(){
-        $(this).css('max-height', '200px').css('max-width', '100%')
+        $(this).find('img').css('max-width', '100%')
+        $(this)
+        .css('max-width', '200px')
+        .css('display', 'inline-block')
+            //.css('max-height', '200px')
     })
     console.log(images)
     var article = $('article')
@@ -22,5 +27,6 @@ $(function(){
         li.css('display', 'inline')
         list.append(li)
     }
-    article.before(list)
+    awesomeBar.append(list)
+    awesomeBar.insertAfter(article.find('h1'))
 })
