@@ -11,12 +11,20 @@
 $(function(){
     var awesomeBar = $('<div>')
     var images = $('figure.image')
-    images.map(function(){
-        $(this).find('img').css('max-width', '100%')
-        $(this)
+    var images = images.map(function(){
+        var oldFigure = $(this)
+        var newFigure = oldFigure.clone()
+        newFigure.find('img').css('max-width', '100%')
+        newFigure
         .css('max-width', '200px')
         .css('display', 'inline-block')
             //.css('max-height', '200px')
+        newFigure.click(function(){
+            $('html, body').animate({
+                scrollTop: oldFigure.offset().top
+            }, 800);
+        })
+        return newFigure
     })
     console.log(images)
     var article = $('article')
