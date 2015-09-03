@@ -3,7 +3,7 @@
 // @namespace    http://initiumlab.com/
 // @version      0.2
 // @description  Awesome experience for image-aholics
-// @author       You
+// @author       Pili Hu @ Initium Lab
 // @match        https://theinitium.com/*
 // @grant        none
 // @require      https://raw.githubusercontent.com/kombai/freewall/master/freewall.min.js

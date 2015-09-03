@@ -26,7 +26,7 @@ Visit [the script](https://raw.githubusercontent.com/initiumlab/imageholics/mast
 
 ## What site is supported?
 
-We support those site at present:
+We support those sites at present:
 
 * <https://theinitium.com/>
 
