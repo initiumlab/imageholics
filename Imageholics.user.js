@@ -56,7 +56,7 @@ var processFigure = function(){
         .css('cursor', 'pointer')
         .click(function(){
             $('html, body').animate({
-                scrollTop: $('#awesome-bar').offset().top - 30
+                scrollTop: 0 //$('#awesome-bar').offset().top - 30
             }, constScrollTimeElapse)
         })
     )
