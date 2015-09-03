@@ -25,7 +25,7 @@ $(function(){
             }, 800);
         })
         //newFigure.addClass('brick')
-        newFigure.find('figcaption').hide()
+        //newFigure.find('figcaption').hide()
         return newFigure
     })
     console.log(images)
@@ -64,5 +64,9 @@ $(function(){
     window.setTimeout(function(){
         console.log('delayed fit width')
         wall.fitWidth()
-    }, 500)
+    }, 400)
+    awesomeBar.find('img').load(function(){
+        console.log('load image; fit width')
+        wall.fitWidth()
+    })
 })
