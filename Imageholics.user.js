@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imageholics
 // @namespace    http://initiumlab.com/
-// @version      0.4
+// @version      0.5
 // @description  Awesome experience for image-aholics
 // @author       Pili Hu @ Initium Lab
 // @match        https://theinitium.com/*
@@ -10,6 +10,8 @@
 // @require      https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar-full.min.js
 // ==/UserScript==
 
+var constScrollTimeElapse = 200;
+
 // Treat this as your global CSS.
 // Put one rule per line.
 var globalStyles = [
@@ -17,8 +19,9 @@ var globalStyles = [
     '#awesome-bar .enlarge:hover{cursor: pointer}',
     '#awesome-bar .enlarge:hover{border: solid 1px #31AFBE}',
     '#awesome-bar .enlarge:hover{background-color: white}',
-    '#awesome-bar .enlarge:hover{padding: 1.5px}',
+    '#awesome-bar .enlarge:hover{padding: 2px}',
     '#awesome-bar .enlarge:hover{z-index: 10 !important}',
+    '#awesome-bar .brick{text-align: center}'
 ]
 var stylesheet = document.styleSheets[0]
 for (var i=0; i < globalStyles.length; i++){
@@ -54,11 +57,15 @@ var processFigure = function(){
         .click(function(){
             $('html, body').animate({
                 scrollTop: $('#awesome-bar').offset().top - 30
-            }, 800)
+            }, constScrollTimeElapse)
         })
     )
     
     newFigure.find('img').css('max-width', '100%')
+    newFigure.find('span.page-indicator').remove()
+    newFigure.find('span.nav-link.prev').remove()
+    newFigure.find('span.nav-link.next').remove()
+    newFigure.find('span.album-counter').remove()
     
     newFigure
     .css('max-width', '200px')
@@ -68,7 +75,7 @@ var processFigure = function(){
     newFigure.click(function(){
         $('html, body').animate({
             scrollTop: oldFigure.offset().top - 20
-        }, 800)
+        }, constScrollTimeElapse)
     })
     
     return newFigure
