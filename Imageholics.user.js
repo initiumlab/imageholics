@@ -2,12 +2,26 @@
 // @name         Imageholics
 // @namespace    http://initiumlab.com/
 // @version      0.2
-// @description  enter something useful
+// @description  Awesome experience for image-aholics
 // @author       You
 // @match        https://theinitium.com/*
 // @grant        none
 // @require      https://raw.githubusercontent.com/kombai/freewall/master/freewall.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar-full.min.js
 // ==/UserScript==
+
+var addAltToImage = function(jqFigure){
+    // jqFigure: a jQuery object pointing to <figure>
+    var image = jqFigure.find('img')
+    var caption = jqFigure.find('figcaption')
+    var text = ''
+    if (caption.length > 0){
+        text = caption.text().trim()
+    } else {
+        text = jqFigure.text().trim()
+    }
+    image.attr('alt', text)
+}
 
 $(function(){
     var stylesheet = document.styleSheets[0]
@@ -32,8 +46,10 @@ $(function(){
                 scrollTop: oldFigure.offset().top
             }, 800);
         })
-        //newFigure.addClass('brick')
-        //newFigure.find('figcaption').hide()
+
+        addAltToImage(newFigure)
+        addAltToImage(oldFigure)
+        
         newFigure.css('cursor', 'pointer')
         newFigure.hover(function() {
             newFigure.addClass('enlarge');
