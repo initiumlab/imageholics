@@ -13,7 +13,12 @@
 // Treat this as your global CSS.
 // Put one rule per line.
 var globalStyles = [
-    '.enlarge:hover{transform:scale(1.2,1.2); transform-origin:50% 50%;}'
+    '#awesome-bar .enlarge:hover{transform:scale(1.1,1.1); transform-origin:50% 50%;}',
+    '#awesome-bar .enlarge:hover{cursor: pointer}',
+    '#awesome-bar .enlarge:hover{border: solid 1px #31AFBE}',
+    '#awesome-bar .enlarge:hover{background-color: white}',
+    '#awesome-bar .enlarge:hover{padding: 1.5px}',
+    '#awesome-bar .enlarge:hover{z-index: 10 !important}',
 ]
 var stylesheet = document.styleSheets[0]
 for (var i=0; i < globalStyles.length; i++){
@@ -45,19 +50,11 @@ var processFigure = function(jqFigure){
     .css('max-width', '200px')
     .css('margin', '0.5em')
     .css('display', 'inline-block')
-    //.css('max-height', '200px')
     
     newFigure.click(function(){
         $('html, body').animate({
             scrollTop: oldFigure.offset().top
         }, 800)
-    })
-
-    newFigure.css('cursor', 'pointer')
-    newFigure.hover(function() {
-        newFigure.addClass('enlarge')
-    }, function() {
-        newFigure.removeClass('enlarge')
     })
     
     return newFigure
@@ -91,7 +88,7 @@ var buildFreeWall = function(jqFreeWall){
     })
 }
 
-$(function(){    
+var main = function(){
     var figures = $('figure.image')
     var figures = figures.map(function(){
         var oldFigure = $(this)
@@ -107,6 +104,11 @@ $(function(){
     figures.map(function(){
         var li = $('<div class="brick">').append($(this))
         li.css('display', 'inline')
+        li.hover(function() {
+            li.addClass('enlarge')
+        }, function() {
+            li.removeClass('enlarge')
+        })
         return li
     }).appendTo(list)
     
@@ -118,4 +120,8 @@ $(function(){
     awesomeBar.insertAfter(article.find('h1'))
     
     buildFreeWall(awesomeBar.find('#freewall'))
+}
+
+$(function(){
+    main()
 })
