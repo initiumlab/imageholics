@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imageholics
 // @namespace    http://initiumlab.com/
-// @version      0.3
+// @version      0.4
 // @description  Awesome experience for image-aholics
 // @author       Pili Hu @ Initium Lab
 // @match        https://theinitium.com/*
@@ -38,8 +38,8 @@ var addAltToImage = function(jqFigure){
     image.attr('alt', text)
 }
 
-var processFigure = function(jqFigure){
-    var oldFigure = jqFigure
+var processFigure = function(){
+    var oldFigure = $(this)
     var newFigure = oldFigure.clone()
     addAltToImage(newFigure)
     addAltToImage(oldFigure)
@@ -86,20 +86,13 @@ var buildFreeWall = function(jqFreeWall){
         console.log('load image; fit width')
         wall.fitWidth()
     })
+    return wall
 }
 
 var main = function(){
-    var figures = $('figure.image')
-    var figures = figures.map(function(){
-        var oldFigure = $(this)
-        var newFigure = processFigure(oldFigure)
-        return newFigure
-    })
+    var figures = $('figure.image').map(processFigure)
     
-    console.log(figures)
-    var article = $('article')
-    var list = $('<div id="freewall">')
-    list.css('max-width', '100%')
+    var list = $('<div id="freewall">').css('max-width', '100%')
     
     figures.map(function(){
         var li = $('<div class="brick">').append($(this))
@@ -113,11 +106,10 @@ var main = function(){
     }).appendTo(list)
     
     var awesomeBar = $('<div id="awesome-bar">')
-    awesomeBar.append(list)
-    awesomeBar
+    .append(list)
     .css('margin-bottom', '2em')
     .css('margin-top', '2em')
-    awesomeBar.insertAfter(article.find('h1'))
+    .insertAfter($('article h1'))
     
     buildFreeWall(awesomeBar.find('#freewall'))
 }
