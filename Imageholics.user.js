@@ -73,8 +73,13 @@ var processFigure = function(){
     .css('display', 'inline-block')
     
     newFigure.click(function(){
+        var targetElement = oldFigure
+        var parent = oldFigure.parent()
+        if (parent.prop("tagName").toLowerCase() == 'section' && parent.hasClass('album')) {
+            targetElement = parent
+        }
         $('html, body').animate({
-            scrollTop: oldFigure.offset().top - 20
+            scrollTop: targetElement.offset().top - 20
         }, constScrollTimeElapse)
     })
     
