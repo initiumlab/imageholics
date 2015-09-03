@@ -44,6 +44,20 @@ var processFigure = function(){
     addAltToImage(newFigure)
     addAltToImage(oldFigure)
     
+    oldFigure.find('figcaption').append(
+        $('<a>')
+        .text('Back to AwesomeBar')
+        .css('margin-left', '1em')
+        .css('padding-left', '1em')
+        .css('padding-right', '1em')
+        .css('cursor', 'pointer')
+        .click(function(){
+            $('html, body').animate({
+                scrollTop: $('#awesome-bar').offset().top - 30
+            }, 800)
+        })
+    )
+    
     newFigure.find('img').css('max-width', '100%')
     
     newFigure
@@ -53,7 +67,7 @@ var processFigure = function(){
     
     newFigure.click(function(){
         $('html, body').animate({
-            scrollTop: oldFigure.offset().top
+            scrollTop: oldFigure.offset().top - 20
         }, 800)
     })
     
