@@ -10,6 +10,14 @@
 // ==/UserScript==
 
 $(function(){
+    var stylesheet = document.styleSheets[0]
+    var globalStyles = [
+        '.enlarge:hover{transform:scale(1.2,1.2); transform-origin:50% 50%;}'
+    ]
+    for (var i=0; i < globalStyles.length; i++){
+        stylesheet.insertRule(globalStyles[i])
+    }
+    
     var images = $('figure.image')
     var images = images.map(function(){
         var oldFigure = $(this)
@@ -26,8 +34,15 @@ $(function(){
         })
         //newFigure.addClass('brick')
         //newFigure.find('figcaption').hide()
+        newFigure.css('cursor', 'pointer')
+        newFigure.hover(function() {
+            newFigure.addClass('enlarge');
+        }, function() {
+            newFigure.removeClass('enlarge');
+        });
         return newFigure
     })
+    
     console.log(images)
     var article = $('article')
     var list = $('<div id="freewall">')
