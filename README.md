@@ -32,3 +32,7 @@ We support those site at present:
 
 If you want to support other site, feel free to submit Pull Request or simply 
 [file an issue](https://github.com/initiumlab/imageholics/issues/new).
+
+## License
+
+[WTFPL](http://www.wtfpl.net/about/)
