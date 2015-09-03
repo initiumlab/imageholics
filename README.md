@@ -10,6 +10,13 @@ Install the following browser extensions accordingly:
 
 Visit [the script](https://raw.githubusercontent.com/initiumlab/imageholics/master/Imageholics.user.js) and accept to install.
 
+## Features
+
+* Build an **AwesomeBar** to show all the images on a page, JUST IN ONE SCREEN!
+* Make the images [blind-friendly](http://initiumlab.com)!
+
+We insanely love images. Do you?
+
 ## What it does?
 
 | Before  | After |
