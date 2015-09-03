@@ -10,6 +10,16 @@
 // @require      https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar-full.min.js
 // ==/UserScript==
 
+// Treat this as your global CSS.
+// Put one rule per line.
+var globalStyles = [
+    '.enlarge:hover{transform:scale(1.2,1.2); transform-origin:50% 50%;}'
+]
+var stylesheet = document.styleSheets[0]
+for (var i=0; i < globalStyles.length; i++){
+    stylesheet.insertRule(globalStyles[i])
+}
+
 var addAltToImage = function(jqFigure){
     // jqFigure: a jQuery object pointing to <figure>
     var image = jqFigure.find('img')
@@ -53,15 +63,35 @@ var processFigure = function(jqFigure){
     return newFigure
 }
 
-$(function(){
-    var stylesheet = document.styleSheets[0]
-    var globalStyles = [
-        '.enlarge:hover{transform:scale(1.2,1.2); transform-origin:50% 50%;}'
-    ]
-    for (var i=0; i < globalStyles.length; i++){
-        stylesheet.insertRule(globalStyles[i])
-    }
-    
+var buildFreeWall = function(jqFreeWall){
+    // jqFreeWall: A jQuery object pointing to freewall object.
+    //             The id is usually "#freewall"
+    var wall = new freewall(jqFreeWall)
+    wall.reset({
+        selector: '.brick',
+        animate: true,
+        cellW: 200,
+        cellH: 'auto',
+        onResize: function() {
+            console.log('on resize')
+            wall.fitWidth()
+        }
+    });
+    window.setTimeout(function(){
+        console.log('delayed fit width')
+        wall.fitWidth()
+    }, 200)
+    window.setTimeout(function(){
+        console.log('delayed fit width')
+        wall.fitWidth()
+    }, 400)
+    jqFreeWall.find('img').load(function(){
+        console.log('load image; fit width')
+        wall.fitWidth()
+    })
+}
+
+$(function(){    
     var figures = $('figure.image')
     var figures = figures.map(function(){
         var oldFigure = $(this)
@@ -73,41 +103,19 @@ $(function(){
     var article = $('article')
     var list = $('<div id="freewall">')
     list.css('max-width', '100%')
-    for (var i=0; i < figures.length; i++){
-        var li = $('<div class="brick">').append(figures[i])
+    
+    figures.map(function(){
+        var li = $('<div class="brick">').append($(this))
         li.css('display', 'inline')
-        list.append(li)
-    }
+        return li
+    }).appendTo(list)
+    
     var awesomeBar = $('<div id="awesome-bar">')
     awesomeBar.append(list)
     awesomeBar
-    //.css('width', '800px')
-    //.css('height', '1000px')
-    .css('margin-bottom', '3em')
-    .css('margin-top', '3em')
+    .css('margin-bottom', '2em')
+    .css('margin-top', '2em')
     awesomeBar.insertAfter(article.find('h1'))
-    var wall = new freewall('#freewall')  
-    wall.reset({
-        selector: '.brick',
-        animate: true,
-        cellW: 200,
-        cellH: 'auto',
-        onResize: function() {
-            console.log('on resize')
-            wall.fitWidth()
-        }
-    });
-    //awesomeBar.width('700px')
-    window.setTimeout(function(){
-        console.log('delayed fit width')
-        wall.fitWidth()
-    }, 200)
-    window.setTimeout(function(){
-        console.log('delayed fit width')
-        wall.fitWidth()
-    }, 400)
-    awesomeBar.find('img').load(function(){
-        console.log('load image; fit width')
-        wall.fitWidth()
-    })
+    
+    buildFreeWall(awesomeBar.find('#freewall'))
 })
