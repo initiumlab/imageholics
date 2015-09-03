@@ -15,13 +15,18 @@ var constScrollTimeElapse = 200;
 // Treat this as your global CSS.
 // Put one rule per line.
 var globalStyles = [
-    '#awesome-bar .enlarge:hover{transform:scale(1.1,1.1); transform-origin:50% 50%;}',
+    '#awesome-bar .enlarge:hover{transform:scale(1.1,1.1); transform-origin:50% 60%}',
     '#awesome-bar .enlarge:hover{cursor: pointer}',
     '#awesome-bar .enlarge:hover{border: solid 1px #31AFBE}',
     '#awesome-bar .enlarge:hover{background-color: white}',
     '#awesome-bar .enlarge:hover{padding: 2px}',
     '#awesome-bar .enlarge:hover{z-index: 10 !important}',
-    '#awesome-bar .brick{text-align: center}'
+    
+    '#awesome-bar .brick{text-align: center}',
+    '#awesome-bar .brick{display: inline}',
+    
+    '.button-back-to-awesome-bar a {font-size:0.8em; margin-left: 1em; padding-left: 1em; padding-right: 1em; cursor: pointer}',
+    '.button-back-to-awesome-bar :hover {font-size: 1.4em}'
 ]
 var stylesheet = document.styleSheets[0]
 for (var i=0; i < globalStyles.length; i++){
@@ -48,17 +53,15 @@ var processFigure = function(){
     addAltToImage(oldFigure)
     
     oldFigure.find('figcaption').append(
-        $('<a>')
-        .text('Back to AwesomeBar')
-        .css('margin-left', '1em')
-        .css('padding-left', '1em')
-        .css('padding-right', '1em')
-        .css('cursor', 'pointer')
-        .click(function(){
-            $('html, body').animate({
-                scrollTop: 0 //$('#awesome-bar').offset().top - 30
-            }, constScrollTimeElapse)
-        })
+        $('<span>').addClass('button-back-to-awesome-bar').append(
+            $('<a>')
+            .text('Back to AwesomeBar')
+            .click(function(){
+                $('html, body').animate({
+                    scrollTop: 0 //$('#awesome-bar').offset().top - 30
+                }, constScrollTimeElapse)
+            })
+        )
     )
     
     newFigure.find('img').css('max-width', '100%')
@@ -121,8 +124,8 @@ var main = function(){
     var list = $('<div id="freewall">').css('max-width', '100%')
     
     figures.map(function(){
-        var li = $('<div class="brick">').append($(this))
-        li.css('display', 'inline')
+        var li = $('<div>').append($(this))
+        li.addClass('brick')
         li.hover(function() {
             li.addClass('enlarge')
         }, function() {
