@@ -1,6 +1,13 @@
 # imageholics
 
-## Install & Update
+We insanely love images. Do you?
+
+## Features
+
+* Build an [**AwesomeBar**](https://github.com/initiumlab/imageholics#what-it-does) to show all the images on a page, JUST IN ONE SCREEN!
+* Make the images [blind-friendly](http://initiumlab.com)!
+
+## Install & Update in TWO steps
 
 Install the following browser extensions accordingly:
 
@@ -9,13 +16,6 @@ Install the following browser extensions accordingly:
    * Firefox: [GreaseMonkey](https://addons.mozilla.org/zh-tw/firefox/addon/greasemonkey/) 
 
 Visit [the script](https://raw.githubusercontent.com/initiumlab/imageholics/master/Imageholics.user.js) and accept to install.
-
-## Features
-
-* Build an **AwesomeBar** to show all the images on a page, JUST IN ONE SCREEN!
-* Make the images [blind-friendly](http://initiumlab.com)!
-
-We insanely love images. Do you?
 
 ## What it does?
 
