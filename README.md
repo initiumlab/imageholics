@@ -21,8 +21,8 @@ Visit [the script](https://raw.githubusercontent.com/initiumlab/imageholics/mast
 
 | Before  | After |
 | ------------- | ------------- |
-| ![Example 1, Before](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/eg1_before.jpg) | ![Example 1, After](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/eg1_after.jpg) |
-| ![Example 2, Before](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/eg2_before.jpg) | ![Example 2, After](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/eg2_after.jpg) |
+| ![Example 1, Before](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/example1-before.jpg) | ![Example 1, After](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/example1-after.jpg) |
+| ![Example 2, Before](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/example2-before.jpg) | ![Example 2, After](https://raw.githubusercontent.com/initiumlab/imageholics/master/misc/example2-after.jpg) |
 
 ## What site is supported?
 
