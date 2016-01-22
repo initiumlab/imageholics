@@ -5,7 +5,7 @@ We insanely love images. Do you?
 ## Features
 
 * Build an [**AwesomeBar**](https://github.com/initiumlab/imageholics#what-it-does) to show all the images on a page, JUST IN ONE SCREEN!
-* Make the images [blind-friendly](http://initiumlab.com)!
+* Make the images [blind-friendly](http://initiumlab.com/blog/20150901-data-journalism-for-the-blind/)!
 
 ## Install & Update in TWO steps
 
